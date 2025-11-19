@@ -9,10 +9,10 @@
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            int numero, resultat;
+            int numero, resultat; //10 constant ja q es limit
             Console.Write("Entra un número: ");
             numero = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine($"\n Taula de multiplicar del {numero}:");
+            Console.WriteLine($"Taula de multiplicar del {numero}:");
             for (int i = 0; i <= 10; i++)
             {
                 resultat = numero * i;

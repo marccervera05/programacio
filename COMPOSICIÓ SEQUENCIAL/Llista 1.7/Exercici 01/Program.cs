@@ -10,7 +10,7 @@ namespace Exercici_01
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            Console.WriteLine("Hola món!");
+            Console.WriteLine("Exercici fet!");
         }
       
     }

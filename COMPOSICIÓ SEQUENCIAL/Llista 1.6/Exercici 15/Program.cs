@@ -12,12 +12,13 @@ namespace Exercici_15
         static void Main(string[] args)
         {
             int num;
-            Console.Write("Entra un número: ");
+            string linia;
+            Console.WriteLine("Entra un número: ");
             num = Convert.ToInt32(Console.ReadLine());
 
             for (int i = 0; i < num; i++)
             {
-                string linia = GenerarLinia('*', num);
+                linia = GenerarLinia('*', num);
                 Console.WriteLine(linia);
             }
         }

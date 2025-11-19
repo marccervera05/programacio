@@ -11,7 +11,7 @@
             int i, nombreEntrat, total;
             i = 0;
             total = 0;
-            for (i = 0; i < 10; i++) ///Suma dels n primers números ( n * (n+1) / 2. D'aquesta manera no caldria el bucle.
+            for (i = 0; i < 10; i++) 
             {
                 Console.WriteLine("Entra un nombre: ");
                 nombreEntrat = Convert.ToInt32(Console.ReadLine());

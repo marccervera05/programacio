@@ -10,10 +10,10 @@
         static void Main(string[] args)
         {
             int n1, n2;
-            Console.Write("Entra el primer nombre: ");
+            Console.WriteLine("Entra el primer nombre: ");
             n1 = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
-            Console.Write("Entra el segon nombre: ");
+            Console.WriteLine("Entra el segon nombre: ");
             n2 = Convert.ToInt32(Console.ReadLine());
             Console.Clear();
             Console.WriteLine($"Números compresos entre {n1} i {n2}:");

@@ -13,7 +13,36 @@ namespace Exercici_04
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            const string FILENAME = "NUMEROS.TXT";
+            string linia;
+            int numeroBuscat;
+            int valor;
+            int posicio;
+            bool trobat;
+            trobat = false;
+            posicio = 0;
+            valor = 0;
+            linia = "";
+            Console.Write("Introdueix el número que vols buscar: ");
+            numeroBuscat = Convert.ToInt32(Console.ReadLine());
+
+            StreamReader sr = new StreamReader(FILENAME);
+            linia = sr.ReadLine();
+            while (linia != null && !trobat)
+            {
+                posicio++;
+                valor = Convert.ToInt32(linia);
+
+                if (valor == numeroBuscat)
+                    trobat = true;
+                else
+                    linia = sr.ReadLine();
+            }
+            sr.Close();
+            if (trobat)
+                Console.WriteLine($"El número {numeroBuscat} es troba per primera vegada a la línia {posicio}.");
+            else
+                Console.WriteLine("-1");    
         }
     }
 }

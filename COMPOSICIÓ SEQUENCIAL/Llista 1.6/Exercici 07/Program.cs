@@ -13,13 +13,9 @@ namespace Exercici_07
         static void Main(string[] args)
         {
             int numero, suma;
-            Console.Write("Entra un número: ");
-            numero = Convert.ToInt32(Console.ReadLine();
-            suma = 0;
-            for (int i = 1; i <= numero; i++)
-            {
-                suma += i;
-            }
+            Console.WriteLine("Entra un número: ");
+            numero = Convert.ToInt32(Console.ReadLine());
+            suma = (numero * (numero + 1)) / 2;
             Console.WriteLine($"La suma del 1 al {numero} és: {suma}");
         }
     }

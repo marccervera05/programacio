@@ -25,7 +25,7 @@ namespace Exercici_16
 
         /// <summary>
         /// Genera una cadena de text formada pel caràcter indicat repetit una quantitat donada.
-        /// Exemple: GenerarLinia('*', 3) → "***"
+        /// Exemple: GenerarLinia('*', 3) -> "***"
         /// </summary>
         /// <param name="car">Caràcter a repetir</param>
         /// <param name="longitud">Nombre de vegades que es repetirà</param>

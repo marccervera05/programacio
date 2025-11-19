@@ -34,7 +34,6 @@
                     zero++;
                     total += nombreEntrat;
                 }
-
             }
             Console.WriteLine($"La suma de tots els nobres que has entrat equival a {total}, dels quals n'hi ha {positius} de positius, " +
                 $"{negatius} negatius i {zero} que son zero.");

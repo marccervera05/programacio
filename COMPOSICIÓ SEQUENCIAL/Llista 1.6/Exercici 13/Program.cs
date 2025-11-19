@@ -14,8 +14,8 @@ namespace Exercici_13
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             const string FILENAME = "Girona_lliga23_24_v2.txt";
             StreamReader srGirona = new StreamReader(FILENAME);
-            int totalJornades, punts, partitsJugats, guanyats, empatats, perduts, golsFavor, golsContra, i, pos1, pos2, pos3, golsLocal, golsVisitant, golsGirona, golsRival;
-            string linia;
+
+            int totalJornades, partitsJugats, guanyats, empatats, perduts, golsFavor, golsContra, punts;
             totalJornades = Convert.ToInt32(srGirona.ReadLine());
             partitsJugats = 0;
             guanyats = 0;
@@ -23,52 +23,71 @@ namespace Exercici_13
             perduts = 0;
             golsFavor = 0;
             golsContra = 0;
-            for (i = 1; i <= totalJornades; i++)
+
+            for (int i = 1; i <= totalJornades; i++)
             {
-                linia = srGirona.ReadLine();
-                pos1 = linia.IndexOf(',');
-                pos2 = linia.IndexOf(',', pos1 + 1);
-                pos3 = linia.IndexOf(',', pos2 + 1);
-                string equipLocal = linia.Substring(0, pos1);
-                golsLocal = Convert.ToInt32(linia.Substring(pos1 + 1, pos2 - pos1 - 1));
-                string equipVisitant = linia.Substring(pos2 + 1, pos3 - pos2 - 1);
-                golsVisitant = Convert.ToInt32(linia.Substring(pos3 + 1));
-                partitsJugats = partitsJugats + 1;
-                golsGirona = 0;
-                golsRival = 0;
+                string linia = srGirona.ReadLine();
+
+                string equipLocal = "";
+                string golsLocalText = "";
+                string equipVisitant = "";
+                string golsVisitantText = "";
+
+                int camp = 0;
+
+            /// Canviar a simple 
+            for (int j = 0; j < linia.Length; j++)
+            {
+                char c = linia[j];
+
+                if (c == ',')
+                {
+                    camp++;
+                }
+                else
+                {
+                    if (camp == 0) equipLocal += c;
+                    else if (camp == 1) golsLocalText += c;
+                    else if (camp == 2) equipVisitant += c;
+                    else if (camp == 3) golsVisitantText += c;
+                    }
+                }
+                int golsLocal = Convert.ToInt32(golsLocalText);
+                int golsVisitant = Convert.ToInt32(golsVisitantText);
+
+                partitsJugats++;
+
+                int golsGirona = 0;
+                int golsRival = 0;
+
                 if (equipLocal == "Girona")
                 {
                     golsGirona = golsLocal;
                     golsRival = golsVisitant;
                 }
-                else
+                else if (equipVisitant == "Girona")
                 {
-                    if (equipVisitant == "Girona")
-                    {
-                        golsGirona = golsVisitant;
-                        golsRival = golsLocal;
-                    }
+                    golsGirona = golsVisitant;
+                    golsRival = golsLocal;
                 }
-                golsFavor = golsFavor + golsGirona;
-                golsContra = golsContra + golsRival;
-                if (golsGirona > golsRival)
-                    guanyats = guanyats + 1;
-                else
-                    if (golsGirona == golsRival)
-                        empatats = empatats + 1;
-                    else
-                        perduts = perduts + 1;
+                golsFavor += golsGirona;
+                golsContra += golsRival;
+
+                if (golsGirona > golsRival) guanyats++;
+                else if (golsGirona == golsRival) empatats++;
+                else perduts++;
             }
             srGirona.Close();
+            
             punts = guanyats * 3 + empatats;
-            Console.WriteLine($"Total de jornades: {totalJornades}");
-            Console.WriteLine($"Partits jugats: {partitsJugats}");
-            Console.WriteLine($"Guanyats: {guanyats}");
-            Console.WriteLine($"Empatats: {empatats}");
-            Console.WriteLine($"Perduts: {perduts}");
-            Console.WriteLine($"Gols a favor: {golsFavor}");
-            Console.WriteLine($"Gols en contra: {golsContra}");
-            Console.WriteLine($"Punts totals: {punts}");
+            Console.WriteLine($"Total jornades: " + totalJornades +
+                " Partits jugats: " + partitsJugats +
+                " Guanyats: " + guanyats +
+                " Empatats: " + empatats +
+                " Perduts: " + perduts +
+                " Gols a favor: " + golsFavor +
+                " Gols en contra: " + golsContra +
+                " Punts totals: " + punts );
         }
     }
 }
